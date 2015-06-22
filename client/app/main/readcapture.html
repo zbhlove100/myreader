@@ -1,0 +1,62 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="row">
+  	<div class="col-xs-12 col-sm-12 text-center">
+    	<div class="btn-group btn-group-justified" role="group" aria-label="control">
+    		<div class="btn-group" role="group">
+	    		<button class="btn btn-primary btn-sm btn-material-red btn-raised" ng-click="preCapture()">
+		          <i class="mdi-navigation-arrow-back " style="font-size: 10pt;"></i>
+		          <i class="" style="font-size: 10pt;">上一章</i>
+		        </button>
+	        </div>
+	        <a class="btn btn-primary btn-sm btn-material-red btn-raised" ng-href="{{'/bookdetail/'+bookid}}">
+	          <i class="mdi-action-view-list" style="font-size: 10pt;"></i>
+	          <i class="" style="font-size: 10pt;">返回</i>
+	        </a>
+	        <div class="btn-group" role="group">
+		        <a class="btn btn-primary btn-sm btn-material-red btn-raised" ng-click="nextCapture()">
+	    		  <i class="" style="font-size: 10pt;">下一章</i>
+		          <i class="mdi-navigation-arrow-forward" style="font-size: 10pt;"></i>
+		        </a>
+		    </div>
+    	</div>
+    </div>
+    <div class="col-xs-12 col-sm-12">
+    	<div class="alert alert-warning" role="alert" ng-show="loaderr">服务器貌似不是太稳定呀,请再试一下吧!</div>
+    	<div class="loading text-center" ng-show="loading"><i class="fa fa-spinner fa-pulse"></i>LOADING...</div>
+	    <p ng-repeat="value in capture.content" ng-class="{'text-center lead':$index==0}" ng-hide="loading">
+	    	{{value.text}}
+	    </p>
+    </div>
+    <div class="col-xs-12 col-sm-12 text-center">
+    	<div class="btn-group btn-group-justified" role="group" aria-label="control">
+    		<div class="btn-group" role="group">
+	    		<button class="btn btn-primary btn-sm btn-material-red btn-raised" ng-click="preCapture()">
+		          <i class="mdi-navigation-arrow-back " style="font-size: 10pt;"></i>
+		          <i class="" style="font-size: 10pt;">上一章</i>
+		        </button>
+	        </div>
+	        <a class="btn btn-primary btn-sm btn-material-red btn-raised" ng-href="{{'/bookdetail/'+bookid}}">
+	          <i class="mdi-action-view-list" style="font-size: 10pt;"></i>
+	          <i class="" style="font-size: 10pt;">返回</i>
+	        </a>
+	        <div class="btn-group" role="group">
+		        <a class="btn btn-primary btn-sm btn-material-red btn-raised" ng-click="nextCapture()">
+	    		  <i class="" style="font-size: 10pt;">下一章</i>
+		          <i class="mdi-navigation-arrow-forward" style="font-size: 10pt;"></i>
+		        </a>
+		    </div>
+    	</div>
+    </div>
+  </div>
+	
+</div>
+
+<button href="#" class='btn btn-warning btn-fab ' id="to_top" title="返回顶部" ng-click="gototop()"><i class="mdi-material-pink mdi-navigation-expand-less" style="font-size: 15pt;"></i></button>
+<script type="text/javascript">
+  $(document).ready(function() {
+            // This command is used to initialize some elements and make them work properly
+            $.material.init();
+        });
+</script>

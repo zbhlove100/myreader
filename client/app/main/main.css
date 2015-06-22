@@ -1,0 +1,89 @@
+.thing-form {
+    margin: 20px 0;
+}
+
+#banner {
+    border-bottom: none;
+    margin-top: -20px;
+}
+
+#banner h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.hero-unit {
+    position: relative;
+    padding: 30px 15px;
+    color: #F5F5F5;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    background: #4393B9;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 70px;
+    border-top: 1px solid #E5E5E5;
+}
+.mainpagecard{
+  padding: 0px;
+  font-size: 10px;
+  text-align: center;
+  /*background-color: #f9f9f9;
+  border: 1px solid #fff;*/
+}
+.bottom-border {
+    border-bottom: 1px solid #ccc;
+}
+
+.right-border {
+    border-right: 1px solid #ccc;
+}
+.divider {
+  height: 1px;
+  width:100%;
+  display:block; /* for use on default inline elements like span */
+  margin: 3px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+hr {
+  height: 1px;
+  width:100%;
+  display:block; /* for use on default inline elements like span */
+  margin: 3px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.pic-centered{
+    margin: auto;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.bookcover{
+    height: 100px;
+    width: 80px;
+}
+
+
+#to_top{
+    right:10px;
+    position:fixed;
+    bottom:15px;
+    _position:absolute;
+    _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-134))
+}
+
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
+}

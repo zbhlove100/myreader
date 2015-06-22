@@ -1,0 +1,12 @@
+<table class="table table-hover">
+  <tr>
+  	<th>#</th>
+	<th>name</th>
+	<th>Action</th>
+  </tr>
+  <tr ng-repeat="book in result.books">
+  	<td>{{$index}}</td>
+  	<td>{{book.name}}</td>
+  	<td><button class="btn btn-primary">edit</button></td>
+  </tr>
+</table>

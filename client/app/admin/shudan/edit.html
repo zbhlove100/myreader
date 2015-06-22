@@ -1,0 +1,113 @@
+<div class="col-xs-12 col-sm-12 text-center">
+	<form class="form" name="form" ng-submit="update(form)" novalidate>
+		<div class="alert alert-success" role="alert" ng-show="actionresult!=''">{{actionresult}}</div>
+
+
+        
+    <div>
+      <button class="btn btn-primary btn-sm btn-material-red btn-raised" type="submit">
+      保存
+      </button>
+    </div>
+		<div class="form-group has-error">
+          <p class="help-block">{{ errors.other }}</p>
+        </div>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">书单名</label>
+  		<div class="col-lg-10">
+  			<input type="text" name="name" class="form-control" ng-model="shudan.name" placeholder="书单名" required>
+      <div class="form-group has-error">
+          <p class="help-block" ng-show="form.name.$error.required && submitted">
+             填了!
+          </p>
+        </div>
+  		</div>
+
+    </div>
+
+        <div class="form-group">
+        	<label class="col-lg-2 control-label">描述</label>
+		  <div class="col-lg-10">
+			<textarea name="description" class="form-control" ng-model="shudan.description" placeholder="描述"  rows="3" id="textArea" required></textarea>
+      <div class="form-group has-error">
+          <p class="help-block" ng-show="form.description.$error.required && submitted">
+             填了!
+          </p>
+        </div>
+		  </div>
+         
+        </div>
+        <div class="form-group">
+        	<label class="col-lg-2 control-label">心情</label>
+		  <div class="col-lg-10">
+			<input type="text" name="emontion" class="form-control" ng-model="shudan.emontion" placeholder="描述" required>
+      <div class="form-group has-error">
+          <p class="help-block" ng-show="form.emontion.$error.required && submitted">
+             填了!
+          </p>
+        </div>
+		  </div>
+        </div>
+        
+		<div class="form-group">
+			<label class="col-lg-2 control-label">主图片</label>
+		  <div class="col-lg-10">
+			<input type="text" name="mainimages" class="form-control" ng-model="shudan.mainimage" placeholder="描述" required>
+      <div class="form-group has-error">
+          <p class="help-block" ng-show="form.mainimages.$error.required && submitted">
+             填了!
+          </p>
+        </div>
+		  </div>
+        </div>
+		 <label>书</label>
+		<div class="col-lg-12">
+			<button type='button' class="btn btn-success" ng-repeat="book in booklist">{{book.name}}<span class="close" aria-hidden="true" ng-click="removebookfrombooklist(book)">&times;</span></button>
+		</div>
+
+		<div class="form-group">
+          <label class="col-lg-2 control-label">search</label>
+		  <div class="col-lg-10">
+
+		  	<input type="text" name="mainimage" class="form-control" ng-model="bookname" placeholder="书名或作者">
+		  </div>
+		  <div class="col-lg-4">
+          	<button type='button' class="btn btn-primary" ng-click="searchmorebook('pre')">上一页</button>
+          </div>
+          <div class="col-lg-4">
+          	<button type='button' class="btn btn-primary" ng-click="searchbook()">search</button>
+          </div>
+          <div class="col-lg-4">
+          	<button type='button' class="btn btn-primary" ng-click="searchmorebook('next')">下一页</button>
+          </div>
+          <div class="col-lg-12">
+          <h5 ng-show="bookresult.count!=0">共计:{{bookresult.count/5 |number:0}} 页,当前{{bookpage+1}}页</h5>
+          </div>
+        </div>
+        <div style="height: 500px;border: 1px solid;margin-top: 10px;padding: 5px;overflow: scroll ">
+        	
+        	<table class="table table-hover table-condensed">
+			  <tr>
+			  	<th class="text-center">#</th>
+				<th class="text-center">书名</th>
+				<th class="text-center">作者</th>
+				<th class="text-center">章节数</th>
+				<th class="text-center">字数</th>
+				<th class="text-center">Action</th>
+			  </tr>
+			  <tr ng-repeat="book in bookresult.books">
+			  	<td>{{$index}}</td>
+			  	<td>{{book.name}}</td>
+			  	<td>{{book.author}}</td>
+			  	<td>{{book.chapter_c}}</td>
+			  	<td>{{book.word | number}}</td>
+			  	<td><button type='button' class="btn btn-primary" ng-click="addbooktobooklist(book)">add</button></td>
+			  </tr>
+			</table>
+        </div>
+        
+
+        
+
+      </form>
+</div>

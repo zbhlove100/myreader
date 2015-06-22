@@ -1,0 +1,95 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
+      <div class="col-xs-4 col-sm-4 col-md-4">
+        <img class="img-thumbnail img-responsive center-block" ng-src="{{'http://bookcover.oss-cn-beijing.aliyuncs.com/'+book.kuaidu_id+'.jpg'}}" style="height: 100px;width: 80px;margin-top: 10px;margin-bottom: 10px" alt="{{book.name}}"> 
+      </div>
+      <div class="col-xs-8 col-sm-8 col-md-8">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <i class="mdi-action-bookmark mdi-material-pink center-block" style="font-size: 15pt;">{{book.author}}作品</i>
+          </div>
+          
+          <div class="col-xs-5 col-sm-5 col-md-5">
+            <p><b>分类</b></p>
+            <p><b>字数</b></p>
+            <p><b>状态</b></p>
+               
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <p>{{book.cate}}</p>
+            <p>{{book.word}}</p>
+            <p>{{book.status | statusfilter}}</p>
+          </div>
+          
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
+      <div class="col-xs-6 col-sm-6 col-md-6 text-center">
+        <a class="btn btn-primary" ng-click="starttoread()">
+          <i class="fa fa-book"></i>开始阅读
+        </a>
+        
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 text-center">
+        <button class="btn btn-primary">
+          <i class="fa fa-heart"></i>加入书架
+        </button>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h4 class="bg-success">简介</h4>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
+      {{book.description}}
+    </div>
+    <div class="col-xs-12 col-sm-12" ng-switch on="catalogshow">
+      <button class="btn btn-primary " style="width: 100%" ng-click="loadCatalog()" ng-switch-when="false">
+        查看目录
+      </button>
+      <button class="btn btn-primary " style="width: 100%" ng-click="hideCatalog()" ng-switch-when="true">
+        隐藏目录
+      </button>
+    </div>
+    <div class="col-xs-12 col-sm-12" ng-show="catalogshow">
+      <div class="col-xs-12 col-sm-12" style="overflow: hidden" ng-repeat="item in catalog.catalog |filter:{catalog_i:'!!'} | orderBy:'catalog_i'">
+        <a class="btn btn-default btn-block "  ng-href="{{'/readcapture/'+catalog._id+'-'+item.catalog_i+':'+book._id}}">{{item.catalog_n}}</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4">
+      <h4>书籍评论</h4>
+    </div>
+    <div class="col-xs-8 col-sm-8">
+      <h4 class="text-right">
+        <i class="mdi-action-favorite mdi-material-red" style="font-size: 10pt;"></i>
+        <i class="mdi-action-favorite mdi-material-red" style="font-size: 10pt;"></i>
+        <i class="mdi-action-favorite mdi-material-red" style="font-size: 10pt;"></i>
+        <i class="mdi-action-favorite mdi-material-red" style="font-size: 10pt;"></i>
+        <i class="mdi-action-favorite-outline mdi-material-red" style="font-size: 10pt;"></i>
+        <small>46人评价</small>
+      </h4>
+      
+    </div>
+    <div class="col-xs-12 col-sm-12">
+      <button class="btn btn-primary " style="width: 100%">
+        查看书评...
+      </button>
+    </div>
+  </div>
+  <button href="#" class='btn btn-warning btn-fab ' id="to_top" title="返回顶部" ng-click="gototop()"><i class="mdi-material-pink mdi-navigation-expand-less" style="font-size: 15pt;"></i></button>
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+            // This command is used to initialize some elements and make them work properly
+            $.material.init();
+        });
+</script>

@@ -1,0 +1,57 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="row">
+  	<h3 class="text-center">{{shudan.name}}</h3>
+  	<div class="col-lg-12 hidden-xs hidden-sm">
+  		<!-- JiaThis Button BEGIN -->
+		<div class="jiathis_style_24x24">
+			<a class="jiathis_button_qzone"></a>
+			<a class="jiathis_button_tsina"></a>
+			<a class="jiathis_button_tqq"></a>
+			<a class="jiathis_button_weixin"></a>
+			<a class="jiathis_button_renren"></a>
+			<a href="http://www.jiathis.com/share?uid=1986914" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+			<a class="jiathis_counter_style"></a>
+		</div>
+		<script type="text/javascript">
+		var jiathis_config = {data_track_clickback:'true'};
+		</script>
+		<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1394175694907625" charset="utf-8"></script>
+		<!-- JiaThis Button END -->
+	</div>
+    <div class="col-xs-12 col-sm-12">
+    	<img class="img-thumbnail img-responsive center-block" ng-src="{{shudan.mainimage}}" alt="pic"> 
+    </div>
+    <div class="col-xs-12 col-sm-12">
+    	<!-- <div class="panel panel-default">
+		  <div class="panel-body">
+		    Basic panel example
+		  </div>
+		</div> -->
+		<blockquote>
+    		<p>{{shudan.description}}</p>
+    	</blockquote>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 bottom-border" ng-repeat="book in shudan.books" ng-animate="{show: 'show'}">
+	  <div class="row">
+	    <div class="col-xs-5 col-sm-5 col-md-5 ">
+	      <img class="img-thumbnail img-responsive center-block" ng-src="{{'http://bookcover.oss-cn-beijing.aliyuncs.com/'+book.kuaidu_id+'.jpg'}}" style="height: 100px;width: 80px;margin-top: 10px;margin-bottom: 10px" alt="{{book.name}}"> 
+	       <a class="btn btn-primary btn-sm btn-material-red btn-raised center-block" ng-href="{{'/bookdetail/'+book._id}}">阅读</a>
+	    </div>
+	    <div class="col-xs-7 col-sm-7 col-md-7 " >
+	      <!-- -->
+	      <h4>{{book.name}}</h4>
+	      <p>{{book.author}}</p>
+
+	      <!-- <img class="img-circle" src="http://lorempixel.com/56/56/people/6" alt="icon"> -->
+	      <p ><small>{{book.description | limitTo:50 |replaceChineseSymbol}} ...</small></p>
+	      <!-- <a class="btn btn-primary">
+	        <i class="fa fa-book fa-2x"></i>
+	      </a> -->
+	    </div>
+	  </div>
+	</div>
+	<button href="#" class='btn btn-warning btn-fab ' id="to_top" title="返回顶部" ng-click="gototop()"><i class="mdi-material-pink mdi-navigation-expand-less" style="font-size: 15pt;"></i></button>
+</div>

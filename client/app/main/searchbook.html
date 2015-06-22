@@ -1,0 +1,44 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+	<div class="row">
+		<fieldset class="well">
+		  	<div class="input-group">
+		  		
+			  		<input type="text" class="form-control" ng-model="searchname" placeholder="书单名字" aria-describedby="basic-addon1">
+			  		<span class="input-group-btn">
+			            <button class="btn btn-primary btn-material-red btn-raised center-block mdi-action-search" style="font-size: 15pt" ng-click="searchBook()"></button>
+			        </span>
+			  	
+			</div>
+		</fieldset>
+	</div>
+	<div class="row">
+	    <div class="col-xs-12 col-sm-12 bottom-border" ng-repeat="book in books" ng-animate="{show: 'show'}">
+	      <div class="row">
+	        <div class="col-xs-5 col-sm-5 col-md-5 ">
+	          <img class="img-thumbnail img-responsive center-block" ng-src="{{'http://bookcover.oss-cn-beijing.aliyuncs.com/'+book.kuaidu_id+'.jpg'}}" style="height: 100px;width: 80px;margin-top: 10px;margin-bottom: 10px" alt="{{book.name}}"> 
+	           <a class="btn btn-primary btn-sm btn-material-red btn-raised center-block" ng-href="{{'/bookdetail/'+book._id}}">阅读</a>
+	        </div>
+	        <div class="col-xs-7 col-sm-7 col-md-7 " >
+	          <!-- -->
+	          <h4>{{book.name}}</h4>
+	          <p>{{book.author}}</p>
+
+	          <!-- <img class="img-circle" src="http://lorempixel.com/56/56/people/6" alt="icon"> -->
+	          <p><small>{{book.description | limitTo:50}} ...</small></p>
+	          <!-- <a class="btn btn-primary">
+	            <i class="fa fa-book fa-2x"></i>
+	          </a> -->
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 bottom-border">
+      <button class="btn btn-primary btn-material-red btn-raised center-block" style="width: 100%" ng-click="loadmorebook()" ng-hide="nomore">更多</button>
+    </div>
+  </div>
+	<button href="#" class='btn btn-warning btn-fab ' id="to_top" title="返回顶部" ng-click="gototop()"><i class="mdi-material-pink mdi-navigation-expand-less" style="font-size: 15pt;"></i></button>
+</div>
+

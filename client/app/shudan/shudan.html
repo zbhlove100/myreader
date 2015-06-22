@@ -1,0 +1,46 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <h3>全部书单</h3>
+  <div class="row">
+  	<fieldset class="well">
+	  	<div class="input-group">
+	  		
+		  		<input type="text" class="form-control" ng-model="searchname" placeholder="书单名字" aria-describedby="basic-addon1">
+		  		<span class="input-group-btn">
+		            <button class="btn btn-primary btn-material-red btn-raised center-block mdi-action-search" style="font-size: 15pt" ng-click="searchshudan()"></button>
+		        </span>
+		  	
+		</div>
+	</fieldset>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12" ng-repeat="shudan in shudans">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">{{shudan.name}}</h2>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-8 col-xs-offset-2" >
+                <img class="img-thumbnail img-responsive center-block" ng-src="{{shudan.mainimage}}" alt="pic"> 
+              </div>
+            </div>
+            <div class="col-xs-12" >
+              <p>{{shudan.description | limitTo:150}}...</p>
+            </div>
+            <div class="col-xs-12" >
+              <a ng-href="{{'/shudan/'+shudan._id}}">查看书单</a>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 bottom-border">
+      <button class="btn btn-primary btn-material-red btn-raised center-block" style="width: 100%" ng-click="loadmore()" ng-hide="nomore">更多</button>
+    </div>
+  </div>
+
+</div>
